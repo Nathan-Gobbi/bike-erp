@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--
+        Reuses the native sale order document body (partner info, lines,
+        totals, terms) exactly as the standard Quotation/Order report does.
+        Only the report action's label changes to "Ordem de Serviço".
+    -->
+    <template id="report_ordem_servico">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t
+                    t-call="sale.report_saleorder_document"
+                    t-lang="doc.partner_id.lang"
+                />
+            </t>
+        </t>
+    </template>
+</odoo>
