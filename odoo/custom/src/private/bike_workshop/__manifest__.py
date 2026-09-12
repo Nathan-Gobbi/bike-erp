@@ -7,7 +7,9 @@
     "license": "AGPL-3",
     "depends": ["bike_base", "sale", "stock"],
     "data": [
+        "security/ir.model.access.csv",
         "views/sale_order_workshop_views.xml",
+        "wizard/bike_workshop_barcode_scan_views.xml",
     ],
     "installable": True,
     "application": False,
