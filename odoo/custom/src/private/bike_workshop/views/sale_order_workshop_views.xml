@@ -9,9 +9,9 @@
     <menuitem
         id="bike_workshop_menu_root"
         name="Ordem de Serviço"
-        parent="bike_base.bike_menu_root"
         action="sale_order_workshop_action"
-        sequence="10"
+        groups="bike_base.group_bike_user"
+        sequence="20"
     />
 
     <record id="sale_order_form_barcode_button" model="ir.ui.view">
