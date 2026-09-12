@@ -32,7 +32,10 @@ Status: Em andamento
         instalar a contabilidade (depende da localização/plano de contas escolhido; não
         hardcoded em dados para não quebrar o install)
   - [ ] Validação fim a fim (estoque + fatura + pagamento) com o ambiente Doodba rodando
-  - [ ] Leitura de código de barras nas linhas
+  - [x] Leitura de código de barras nas linhas (assistente "Escanear Produto": localiza
+        produto por `barcode`, incrementa linha existente ou cria nova; avisa se não
+        encontrado ou se houver ambiguidade) — falta testar no navegador com o ambiente
+        rodando
   - [ ] Relatórios (OS completa + comprovante não fiscal)
 - [ ] bike_theme (identidade visual)
 
