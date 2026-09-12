@@ -5,10 +5,12 @@
     "category": "Bike ERP",
     "author": "Nathan Gobbi",
     "license": "AGPL-3",
-    "depends": ["bike_base", "sale", "stock"],
+    "depends": ["bike_base", "sale", "stock", "account"],
     "data": [
         "security/ir.model.access.csv",
         "views/sale_order_workshop_views.xml",
+        "views/bike_stock_menu_views.xml",
+        "views/bike_finance_menu_views.xml",
         "wizard/bike_workshop_barcode_scan_views.xml",
         "report/report_paperformat.xml",
         "report/report_os_completa_templates.xml",

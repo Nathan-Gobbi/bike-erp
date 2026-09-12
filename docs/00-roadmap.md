@@ -44,6 +44,21 @@ Status: Em andamento
       `--bike-primary`/`--bike-primary-dark`, sem lógica de negócio; trocar pelas cores
       reais da bicicletaria quando definidas; logo continua sendo configurado em
       Settings > Companies, não em código) — falta validar visualmente no navegador
+- [x] Tela inicial enxuta (5 apps de topo, sem o antigo "Bike ERP" guarda-chuva):
+      Estoque e Financeiro (bike_workshop, novos e enxutos: Produtos/Ajuste de Estoque e
+      Faturas/Pagamentos, reaproveitando `product.template`, `stock.quant`,
+      `account.move`, `account.payment` diretamente), Ordem de Serviço (agora top-level,
+      não mais dentro de "Bike ERP"), Contatos e Usuários+Grupos (bike_base).
+      Discuss/Painéis/Rastreio de links/Contatos-nativo/Vendas-nativo ficam ocultos para
+      todo mundo, e Inventário/Faturamento nativos ficam restritos ao Administrador —
+      tudo via um `post_init_hook` em `bike_base` (identifica os menus pelo módulo
+      técnico dono, não pelo nome, então funciona em qualquer idioma). Administrador
+      também ganha `base.group_system` (mantém Aplicativos e Definições). **Pendente de
+      verificar ao testar:** se `stock.group_stock_user` (que `group_bike_user` implica)
+      realmente permite editar quantidade em "Ajuste de Estoque" — o Odoo às vezes
+      reserva isso para o grupo de gerente de estoque; se o Usuário só conseguir
+      visualizar sem editar, precisamos ajustar o ACL/direito específico depois de
+      confirmar o comportamento real.
 
 ---
 

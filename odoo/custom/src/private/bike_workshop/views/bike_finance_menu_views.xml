@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Financeiro: Administrador only. Lean app on top of native
+         account.move/account.payment — no reimplementation of accounting,
+         just a scoped lens for the shop's day-to-day (invoices + payments).
+         The full native Accounting/Invoicing app stays available to
+         Administrador too, restricted by bike_base's post_init hook. -->
+    <record id="action_bike_finance_invoices" model="ir.actions.act_window">
+        <field name="name">Faturas</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('move_type', '=', 'out_invoice')]</field>
+        <field name="context">{'default_move_type': 'out_invoice'}</field>
+    </record>
+
+    <record id="action_bike_finance_payments" model="ir.actions.act_window">
+        <field name="name">Pagamentos</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('payment_type', '=', 'inbound')]</field>
+        <field name="context">{'default_payment_type': 'inbound'}</field>
+    </record>
+
+    <menuitem
+        id="bike_finance_menu_root"
+        name="Financeiro"
+        groups="bike_base.group_bike_manager"
+        sequence="40"
+    />
+
+    <menuitem
+        id="bike_finance_menu_invoices"
+        name="Faturas"
+        parent="bike_finance_menu_root"
+        action="action_bike_finance_invoices"
+        groups="bike_base.group_bike_manager"
+        sequence="10"
+    />
+
+    <menuitem
+        id="bike_finance_menu_payments"
+        name="Pagamentos"
+        parent="bike_finance_menu_root"
+        action="action_bike_finance_payments"
+        groups="bike_base.group_bike_manager"
+        sequence="20"
+    />
+</odoo>
