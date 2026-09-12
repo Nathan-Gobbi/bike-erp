@@ -25,8 +25,15 @@ Status: Em andamento
 ## Fase 3 - Desenvolvimento dos módulos
 
 - [x] bike_base (fundação: menu, categoria, grupos de segurança)
-- [ ] Catálogo (produtos físicos + serviços, configuração via UI, sem código)
+- [x] Catálogo (produtos físicos + serviços, configuração via UI, sem código)
 - [ ] bike_workshop (Ordem de Serviço sobre sale.order, barcode, relatórios)
+  - [x] Menu/ação "Ordem de Serviço" sobre `sale.order`
+  - [ ] Diários de pagamento (Caixa/PIX/Débito/Crédito) — configurar via UI depois de
+        instalar a contabilidade (depende da localização/plano de contas escolhido; não
+        hardcoded em dados para não quebrar o install)
+  - [ ] Validação fim a fim (estoque + fatura + pagamento) com o ambiente Doodba rodando
+  - [ ] Leitura de código de barras nas linhas
+  - [ ] Relatórios (OS completa + comprovante não fiscal)
 - [ ] bike_theme (identidade visual)
 
 ---

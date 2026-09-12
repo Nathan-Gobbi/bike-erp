@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_order_workshop_action" model="ir.actions.act_window">
+        <field name="name">Ordem de Serviço</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,form,calendar,activity</field>
+    </record>
+
+    <menuitem
+        id="bike_workshop_menu_root"
+        name="Ordem de Serviço"
+        parent="bike_base.bike_menu_root"
+        action="sale_order_workshop_action"
+        sequence="10"
+    />
+</odoo>
