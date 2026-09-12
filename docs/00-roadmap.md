@@ -40,7 +40,10 @@ Status: Em andamento
         de `sale.order`) + "Comprovante (sem valor fiscal)" (térmico 80mm,
         `report.paperformat` dedicado) — falta validar a renderização PDF/impressão com
         o ambiente rodando
-- [ ] bike_theme (identidade visual)
+- [x] bike_theme (identidade visual: CSS com paleta placeholder em variáveis
+      `--bike-primary`/`--bike-primary-dark`, sem lógica de negócio; trocar pelas cores
+      reais da bicicletaria quando definidas; logo continua sendo configurado em
+      Settings > Companies, não em código) — falta validar visualmente no navegador
 
 ---
 

@@ -1,0 +1,25 @@
+/*
+ * Placeholder color palette for Bike ERP.
+ * Swap these two values for the shop's real brand colors (hex codes) when
+ * they are defined — nothing else in this file needs to change.
+ * The company logo is configured via Settings > Companies, not here.
+ */
+:root {
+    --bike-primary: #2e7d32;
+    --bike-primary-dark: #1b5e20;
+}
+
+.o_main_navbar {
+    background-color: var(--bike-primary) !important;
+}
+
+.btn-primary {
+    background-color: var(--bike-primary) !important;
+    border-color: var(--bike-primary-dark) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--bike-primary-dark) !important;
+    border-color: var(--bike-primary-dark) !important;
+}
