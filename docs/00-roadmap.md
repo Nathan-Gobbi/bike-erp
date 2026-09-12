@@ -24,10 +24,10 @@ Status: Em andamento
 
 ## Fase 3 - Desenvolvimento dos módulos
 
-- [ ] bike_base
-- [ ] bike_stock
-- [ ] bike_sale
-- [ ] bike_workshop
+- [x] bike_base (fundação: menu, categoria, grupos de segurança)
+- [ ] Catálogo (produtos físicos + serviços, configuração via UI, sem código)
+- [ ] bike_workshop (Ordem de Serviço sobre sale.order, barcode, relatórios)
+- [ ] bike_theme (identidade visual)
 
 ---
 
