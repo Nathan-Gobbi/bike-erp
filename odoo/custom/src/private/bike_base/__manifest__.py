@@ -5,11 +5,15 @@
     "category": "Bike ERP",
     "author": "Nathan Gobbi",
     "license": "AGPL-3",
-    "depends": ["base", "mail", "sale", "stock", "account"],
+    "depends": ["base", "mail", "product", "sale", "stock", "account"],
     "data": [
         "security/bike_security.xml",
         "security/ir.model.access.csv",
         "views/bike_menus.xml",
+        "data/product_category_data.xml",
+    ],
+    "demo": [
+        "demo/product_demo.xml",
     ],
     "installable": True,
     "application": True,
