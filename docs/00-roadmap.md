@@ -36,7 +36,10 @@ Status: Em andamento
         produto por `barcode`, incrementa linha existente ou cria nova; avisa se não
         encontrado ou se houver ambiguidade) — falta testar no navegador com o ambiente
         rodando
-  - [ ] Relatórios (OS completa + comprovante não fiscal)
+  - [x] Relatórios: "Ordem de Serviço" (PDF/A4, reaproveita o corpo do relatório nativo
+        de `sale.order`) + "Comprovante (sem valor fiscal)" (térmico 80mm,
+        `report.paperformat` dedicado) — falta validar a renderização PDF/impressão com
+        o ambiente rodando
 - [ ] bike_theme (identidade visual)
 
 ---

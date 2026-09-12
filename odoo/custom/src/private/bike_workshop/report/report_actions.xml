@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_report_ordem_servico" model="ir.actions.report">
+        <field name="name">Ordem de Serviço</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bike_workshop.report_ordem_servico</field>
+        <field name="report_file">bike_workshop.report_ordem_servico</field>
+        <field name="print_report_name">'Ordem de Servico - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="sale.model_sale_order" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_report_comprovante" model="ir.actions.report">
+        <field name="name">Comprovante (sem valor fiscal)</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bike_workshop.report_comprovante</field>
+        <field name="report_file">bike_workshop.report_comprovante</field>
+        <field name="print_report_name">'Comprovante - %s' % (object.name)</field>
+        <field name="paperformat_id" ref="paperformat_bike_receipt" />
+        <field name="binding_model_id" ref="sale.model_sale_order" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
