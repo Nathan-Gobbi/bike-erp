@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Contatos: top-level app, own thin action on res.partner (no dependency
+         on the native "contacts" module, whose own icon is hidden by the
+         post_init_bike_base hook if present). Visible to both profiles. -->
+    <record id="action_bike_contacts" model="ir.actions.act_window">
+        <field name="name">Contatos</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,form,kanban</field>
+    </record>
+
+    <menuitem
+        id="bike_menu_contacts"
+        name="Contatos"
+        action="action_bike_contacts"
+        groups="group_bike_user"
+        sequence="30"
+    />
+
+    <!-- Usuários: top-level app, Administrador only. Reuses the native
+         Users/Groups screens directly, no reimplementation. -->
+    <menuitem
+        id="bike_menu_users_root"
+        name="Usuários"
+        groups="group_bike_manager"
+        sequence="50"
+    />
+
+    <menuitem
+        id="bike_menu_users"
+        name="Usuários"
+        parent="bike_menu_users_root"
+        action="base.action_res_users"
+        groups="group_bike_manager"
+        sequence="10"
+    />
+
+    <menuitem
+        id="bike_menu_groups"
+        name="Grupos"
+        parent="bike_menu_users_root"
+        action="base.action_res_groups"
+        groups="group_bike_manager"
+        sequence="20"
+    />
+</odoo>

@@ -1,0 +1,22 @@
+{
+    "name": "Bike Workshop",
+    "summary": "Ordem de Servico for Bike ERP, built on top of sale.order",
+    "version": "18.0.1.0.0",
+    "category": "Bike ERP",
+    "author": "Nathan Gobbi",
+    "license": "AGPL-3",
+    "depends": ["bike_base", "sale", "stock", "account"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/sale_order_workshop_views.xml",
+        "views/bike_stock_menu_views.xml",
+        "views/bike_finance_menu_views.xml",
+        "wizard/bike_workshop_barcode_scan_views.xml",
+        "report/report_paperformat.xml",
+        "report/report_os_completa_templates.xml",
+        "report/report_comprovante_templates.xml",
+        "report/report_actions.xml",
+    ],
+    "installable": True,
+    "application": False,
+}

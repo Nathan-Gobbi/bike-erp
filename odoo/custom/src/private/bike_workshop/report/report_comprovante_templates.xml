@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--
+        Minimal, non-fiscal receipt for an 80mm thermal printer. Deliberately
+        does not reuse web.external_layout (meant for A4 letterhead) and does
+        not call itself a "cupom fiscal" anywhere: it has no fiscal validity
+        until a real NFC-e/NF-e integration (OCA/l10n-brazil) is added later.
+    -->
+    <template id="report_comprovante">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="bike_receipt">
+                    <style>
+                        .bike_receipt {
+                            font-family: monospace;
+                            font-size: 10px;
+                            width: 100%;
+                        }
+                        .bike_receipt hr {
+                            border: none;
+                            border-top: 1px dashed #000;
+                        }
+                        .bike_receipt table {
+                            width: 100%;
+                            border-collapse: collapse;
+                        }
+                        .bike_receipt .text-center {
+                            text-align: center;
+                        }
+                        .bike_receipt .text-right {
+                            text-align: right;
+                        }
+                    </style>
+
+                    <p class="text-center">
+                        <strong>SEM VALOR FISCAL</strong>
+                    </p>
+
+                    <p class="text-center">
+                        <strong t-field="doc.company_id.name" /><br />
+                        <span t-if="doc.company_id.vat">CNPJ: <span
+                                t-field="doc.company_id.vat"
+                            /><br /></span>
+                        <span t-field="doc.company_id.street" /><br />
+                        <span t-field="doc.company_id.city" />/<span
+                            t-field="doc.company_id.state_id.code"
+                        />
+                    </p>
+                    <hr />
+
+                    <p>
+                        OS: <span t-field="doc.name" /><br />
+                        Data: <span
+                            t-field="doc.date_order"
+                            t-options="{'widget': 'datetime'}"
+                        /><br />
+                        Cliente: <span t-field="doc.partner_id.name" /><br />
+                        Atendente: <span t-field="doc.user_id.name" />
+                    </p>
+                    <hr />
+
+                    <table>
+                        <t t-foreach="doc.order_line" t-as="line">
+                            <tr>
+                                <td colspan="3" t-field="line.product_id.name" />
+                            </tr>
+                            <tr>
+                                <td><span t-field="line.product_uom_qty" /> x <span
+                                        t-field="line.price_unit"
+                                        t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"
+                                    /></td>
+                                <td class="text-right"><span
+                                        t-field="line.price_subtotal"
+                                        t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"
+                                    /></td>
+                            </tr>
+                        </t>
+                    </table>
+                    <hr />
+
+                    <table>
+                        <tr t-if="doc.amount_untaxed != doc.amount_total">
+                            <td>Subtotal</td>
+                            <td class="text-right"><span
+                                    t-field="doc.amount_untaxed"
+                                    t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"
+                                /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>TOTAL</strong></td>
+                            <td class="text-right"><strong
+                                    t-field="doc.amount_total"
+                                    t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"
+                                /></td>
+                        </tr>
+                    </table>
+                    <hr />
+
+                    <p>
+                        Situação: <span t-field="doc.invoice_status" /><br />
+                        <t t-if="doc.invoice_ids">
+                            Pagamento: <span
+                                t-field="doc.invoice_ids[-1:].payment_state"
+                            />
+                        </t>
+                    </p>
+
+                    <p class="text-center">
+                        Obrigado pela preferência!<br />
+                        <strong>SEM VALOR FISCAL</strong>
+                    </p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

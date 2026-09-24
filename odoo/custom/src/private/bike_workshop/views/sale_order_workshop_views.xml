@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_order_workshop_action" model="ir.actions.act_window">
+        <field name="name">Ordem de Serviço</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,form,calendar,activity</field>
+    </record>
+
+    <menuitem
+        id="bike_workshop_menu_root"
+        name="Ordem de Serviço"
+        action="sale_order_workshop_action"
+        groups="bike_base.group_bike_user"
+        sequence="20"
+    />
+
+    <record id="sale_order_form_barcode_button" model="ir.ui.view">
+        <field name="name">sale.order.form.bike.workshop.barcode</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_open_barcode_scan"
+                    type="object"
+                    string="Escanear Produto"
+                    class="btn-secondary"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

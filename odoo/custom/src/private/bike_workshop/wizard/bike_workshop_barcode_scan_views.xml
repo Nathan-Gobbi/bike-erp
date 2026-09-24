@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="bike_workshop_barcode_scan_view_form" model="ir.ui.view">
+        <field name="name">bike.workshop.barcode.scan.view.form</field>
+        <field name="model">bike.workshop.barcode.scan</field>
+        <field name="arch" type="xml">
+            <form string="Escanear Código de Barras">
+                <field name="order_id" invisible="1" />
+                <group>
+                    <field
+                        name="barcode"
+                        placeholder="Escaneie ou digite o código de barras..."
+                    />
+                </group>
+                <footer>
+                    <button
+                        name="action_scan"
+                        type="object"
+                        string="Adicionar"
+                        class="btn-primary"
+                    />
+                    <button string="Fechar" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

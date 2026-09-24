@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_demo_camara_aro_29" model="product.template">
+        <field name="name">Câmara Aro 29</field>
+        <field name="type">consu</field>
+        <field name="is_storable">True</field>
+        <field name="categ_id" ref="product_category_parts" />
+        <field name="barcode">7891234567890</field>
+        <field name="list_price">35.00</field>
+        <field name="standard_price">18.00</field>
+    </record>
+
+    <record id="product_demo_instalacao_camara" model="product.template">
+        <field name="name">Instalação de Câmara</field>
+        <field name="type">service</field>
+        <field name="categ_id" ref="product_category_services" />
+        <field name="list_price">20.00</field>
+    </record>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Estoque: lean app, only what the counter actually uses (product
+         catalog and quantity on hand/adjustment). The full native Inventory
+         app (warehouses, routes, advanced reports) stays available to
+         Administrador only, restricted by bike_base's post_init hook. -->
+    <record id="action_bike_stock_products" model="ir.actions.act_window">
+        <field name="name">Produtos</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">list,form,kanban</field>
+    </record>
+
+    <record id="action_bike_stock_quants" model="ir.actions.act_window">
+        <field name="name">Ajuste de Estoque</field>
+        <field name="res_model">stock.quant</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+        id="bike_stock_menu_root"
+        name="Estoque"
+        groups="bike_base.group_bike_user"
+        sequence="10"
+    />
+
+    <menuitem
+        id="bike_stock_menu_products"
+        name="Produtos"
+        parent="bike_stock_menu_root"
+        action="action_bike_stock_products"
+        groups="bike_base.group_bike_user"
+        sequence="10"
+    />
+
+    <menuitem
+        id="bike_stock_menu_quants"
+        name="Ajuste de Estoque"
+        parent="bike_stock_menu_root"
+        action="action_bike_stock_quants"
+        groups="bike_base.group_bike_user"
+        sequence="20"
+    />
+</odoo>
