@@ -29,3 +29,9 @@
 
 # Project-specific docker configurations
 /.docker/
+
+# Python cache, local environment variables and logs
+__pycache__/
+.env
+.env.*
+*.log
